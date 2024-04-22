@@ -7,6 +7,7 @@ import android.os.PowerManager
 
 import android.content.BroadcastReceiver
 import android.content.Intent
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
             (getSystemService(Context.POWER_SERVICE) as PowerManager).run {
                 newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyApp::MyWakelockTag").apply {
                     acquire()
+                    Log.d("WAKELOCK: ", "acquired")
                 }
             }
     }
